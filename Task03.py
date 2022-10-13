@@ -20,13 +20,16 @@ def print_grid():
 # ВЫБОР РЕЖИМА ИГРЫ:
 
 def select_game_mode(game_mode):
-    entry = input("для игры с ботом введите 1, для игры вдвоем введите 2: ")
-    if entry == "1" or entry == "2":
-        game_mode = int(entry)
-    else:
-        print("некорректный ввод")
+    entry = ""
+    while entry != "1" or entry != "2":
+        entry = input("Для игры с ботом введите 1, для игры вдвоем введите 2: ")
+        if entry == "1" or entry == "2":
+            game_mode = int(entry)
+            break
+        else:
+            print("некорректный ввод")
     if game_mode == 1:
-        print("Режим игры с ботом")
+            print("Режим игры с ботом")
     elif game_mode == 2:
         print("Режим игры вдвоем")
     else:
