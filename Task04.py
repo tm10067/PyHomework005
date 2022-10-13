@@ -53,7 +53,7 @@ def decompress_text(text_compr):
     text_raw = "".join(list_raw)
     return text_raw
     
-with open(r'Task04compressed.txt', 'r') as data:
+with open(r'Task04source1.txt', 'r') as data:
     text_compr = data.read()
     data.close()
 
