@@ -2,8 +2,9 @@
 # Входные и выходные данные хранятся в отдельных текстовых файлах.
 # Пример: aaaaaaabbbbbbccccccccc => 7a6b9c и 11a3b7c => aaaaaaaaaaabbbccccccc
 
-text_raw = "maaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabbbbbbbbbbbbbbbbbbbbbcccccccccdde"
-print(text_raw)
+with open(r'Task04source.txt', 'r') as data:
+    text_raw = data.read()
+    data.close()
 
 def compress_text(text_raw):
     list_raw = list(text_raw)
@@ -26,8 +27,9 @@ def compress_text(text_raw):
     text_compr = "".join(list_compr)
     return text_compr
 
-text_compr = compress_text(text_raw)
-print(text_compr)
+with open(r'Task04compressed.txt', 'w') as data:
+    data.write(compress_text(text_raw))
+    data.close()
 
 def decompress_text(text_compr):
     list_compr = list(text_compr)
@@ -51,5 +53,10 @@ def decompress_text(text_compr):
     text_raw = "".join(list_raw)
     return text_raw
     
-text_raw1 = decompress_text(text_compr)   
-print(text_raw1)
+with open(r'Task04compressed.txt', 'r') as data:
+    text_compr = data.read()
+    data.close()
+
+with open(r'Task04decompressed.txt', 'w') as data:
+    data.write(decompress_text(text_compr))
+    data.close()
